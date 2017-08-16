@@ -234,9 +234,9 @@ def getButtonSetupFunctions():
 		for x in [x for x in os.listdir("/usr/script") if x.endswith(".sh")]:
 			x = x[:-3]
 			ButtonSetupFunctions.append((_("Shellscript") + " " + x, "Shellscript/" + x, "Shellscripts"))
-	if os.path.isfile("/usr/lib/enigma2/python/Plugins/Extensions/Infopanel/ScriptRunner.pyo"):
+	if os.path.isfile("/usr/lib/enigma2/python/Plugins/Extensions/Openpanel/ScriptRunner.pyo"):
 		ButtonSetupFunctions.append((_("ScriptRunner"), "ScriptRunner/", "Plugins"))
-	if os.path.isfile("/usr/lib/enigma2/python/Plugins/Extensions/Infopanel/QuickMenu.pyo"):
+	if os.path.isfile("/usr/lib/enigma2/python/Plugins/Extensions/Openpanel/QuickMenu.pyo"):
 		ButtonSetupFunctions.append((_("QuickMenu"), "QuickMenu/", "Plugins"))
 	if os.path.isfile("/usr/lib/enigma2/python/Plugins/Extensions/Kodi/plugin.pyo"):
 		ButtonSetupFunctions.append((_("Kodi MediaCenter"), "Kodi/", "Plugins"))
@@ -617,12 +617,12 @@ class InfoBarButtonSetup():
 				except Exception as e:
 					print('[EMCPlayer] showMovies exception:\n' + str(e))
 			elif selected[0] == "ScriptRunner":
-				if os.path.isfile("/usr/lib/enigma2/python/Plugins/Extensions/Infopanel/ScriptRunner.pyo"):
-					from Plugins.Extensions.Infopanel.ScriptRunner import ScriptRunner
+				if os.path.isfile("/usr/lib/enigma2/python/Plugins/Extensions/Openpanel/ScriptRunner.pyo"):
+					from Plugins.Extensions.Openpanel.ScriptRunner import ScriptRunner
 					self.session.open (ScriptRunner)
 			elif selected[0] == "QuickMenu":
-				if os.path.isfile("/usr/lib/enigma2/python/Plugins/Extensions/Infopanel/QuickMenu.pyo"):
-					from Plugins.Extensions.Infopanel.QuickMenu import QuickMenu
+				if os.path.isfile("/usr/lib/enigma2/python/Plugins/Extensions/Openpanel/QuickMenu.pyo"):
+					from Plugins.Extensions.Openpanel.QuickMenu import QuickMenu
 					self.session.open (QuickMenu)
 			elif selected[0] == "Kodi":
 				if os.path.isfile("/usr/lib/enigma2/python/Plugins/Extensions/Kodi/plugin.pyo"):
