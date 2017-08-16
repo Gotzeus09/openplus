@@ -2512,9 +2512,9 @@ class InfoBarSeek:
 		self.setSeekState(self.SEEK_STATE_PAUSE)
 
 	def pauseServiceYellow(self):
-		if config.plugins.infopanel_yellowkey.list.value == '0':
+		if config.plugins.openpanel_yellowkey.list.value == '0':
 			self.audioSelection()
-		elif config.plugins.infopanel_yellowkey.list.value == '2':
+		elif config.plugins.openpanel_yellowkey.list.value == '2':
 			ToggleVideo()
 		else:
 			self.playpauseService()
@@ -3038,13 +3038,13 @@ class InfoBarExtensions:
 	def quickmenuStart(self):
 		try:
 			if not self.session.pipshown:
-				from Plugins.Extensions.Infopanel.QuickMenu import QuickMenu
+				from Plugins.Extensions.Openpanel.QuickMenu import QuickMenu
 				self.session.open(QuickMenu)
 			else:
 				self.showExtensionSelection()
 		except:
 			print "[INFOBARGENERICS] QuickMenu: error pipshow, starting Quick Menu"
-			from Plugins.Extensions.Infopanel.QuickMenu import QuickMenu
+			from Plugins.Extensions.Openpanel.QuickMenu import QuickMenu
 			self.session.open(QuickMenu)
 
 	def SelectopenEventView(self):
@@ -3066,7 +3066,7 @@ class InfoBarExtensions:
 		return _("Softcam-Panel")
 
 	def getSoftcamPanel(self):
-		if config.plugins.showinfopanelextensions.value:
+		if config.plugins.showopenpanelextensions.value:
 			return [((boundFunction(self.getSoftcamPanelname), boundFunction(self.openSoftcamPanel), lambda: True), None)]
 		else:
 			return []
@@ -3199,12 +3199,12 @@ class InfoBarExtensions:
 		self.session.open(OSD3DSetupScreen)
 
 	def openSoftcamPanel(self):
-		from Plugins.Extensions.Infopanel.SoftcamPanel import SoftcamPanel
+		from Plugins.Extensions.Openpanel.SoftcamPanel import SoftcamPanel
 		self.session.open(SoftcamPanel)
 
 	def openRestartNetwork(self):
 		try:
-			from Plugins.Extensions.Infopanel.RestartNetwork import RestartNetwork
+			from Plugins.Extensions.Openpanel.RestartNetwork import RestartNetwork
 			self.session.open(RestartNetwork)
 		except:
 			print'[INFOBARGENERICS] failed to restart network'
@@ -3585,57 +3585,57 @@ class InfoBarINFOpanel:
 				for x in self.onHBBTVActivation:
 					x()
 					
-			elif config.plugins.infopanel_redpanel.selection.value == '0':
+			elif config.plugins.openpanel_redpanel.selection.value == '0':
 				self.instantRecord()
 			else:
 				self.doRedKeyTask()
 		
-		elif config.plugins.infopanel_redpanel.selection.value == '0':
+		elif config.plugins.openpanel_redpanel.selection.value == '0':
 			self.instantRecord()
 		else:
 			self.doRedKeyTask()
 
 	def doRedKeyTask(self):
 		try:
-			if config.plugins.infopanel_redpanel.selection.value =='0':
+			if config.plugins.openpanel_redpanel.selection.value =='0':
 				self.instantRecord()
-			elif config.plugins.infopanel_redpanel.selection.value =='1':
-				from Plugins.Extensions.Infopanel.plugin import Infopanel
-				self.session.open(Infopanel, services = self.servicelist)
-			elif config.plugins.infopanel_redpanel.selection.value == '2':
+			elif config.plugins.openpanel_redpanel.selection.value =='1':
+				from Plugins.Extensions.Openpanel.plugin import Openpanel
+				self.session.open(Openpanel, services = self.servicelist)
+			elif config.plugins.openpanel_redpanel.selection.value == '2':
 				self.session.open(TimerEditList)
-			elif config.plugins.infopanel_redpanel.selection.value == '3':
+			elif config.plugins.openpanel_redpanel.selection.value == '3':
 				self.showMovies()
-			elif config.plugins.infopanel_redpanel.selection.value == '4':
+			elif config.plugins.openpanel_redpanel.selection.value == '4':
 				self.StartsoftcamPanel()
 			else:
-				self.StartPlugin(config.plugins.infopanel_redpanel.selection.value)
+				self.StartPlugin(config.plugins.openpanel_redpanel.selection.value)
 
 		except:
 			print "Error on RedKeyTask !!"
 		
 	def softcamPanel(self):
 		try:
-			if config.plugins.infopanel_redpanel.selectionLong.value =='0':
+			if config.plugins.openpanel_redpanel.selectionLong.value =='0':
 				self.instantRecord()
-			elif config.plugins.infopanel_redpanel.selectionLong.value =='1':
-				from Plugins.Extensions.Infopanel.plugin import Infopanel
-				self.session.open(Infopanel, services = self.servicelist)
-			elif config.plugins.infopanel_redpanel.selectionLong.value == '2':
+			elif config.plugins.openpanel_redpanel.selectionLong.value =='1':
+				from Plugins.Extensions.Openpanel.plugin import Openpanel
+				self.session.open(Openpanel, services = self.servicelist)
+			elif config.plugins.openpanel_redpanel.selectionLong.value == '2':
 				self.session.open(TimerEditList)
-			elif config.plugins.infopanel_redpanel.selectionLong.value == '3':
+			elif config.plugins.openpanel_redpanel.selectionLong.value == '3':
 				self.showMovies()
-			elif config.plugins.infopanel_redpanel.selectionLong.value == '4':
+			elif config.plugins.openpanel_redpanel.selectionLong.value == '4':
 				self.StartsoftcamPanel()
 			else:
-				self.StartPlugin(config.plugins.infopanel_redpanel.selectionLong.value)
+				self.StartPlugin(config.plugins.openpanel_redpanel.selectionLong.value)
 
 		except:
 			print "Error on RedKeyTask Long!!"
 			
 	def StartsoftcamPanel(self):
 		try:
-			from Plugins.Extensions.Infopanel.SoftcamPanel import SoftcamPanel
+			from Plugins.Extensions.Openpanel.SoftcamPanel import SoftcamPanel
 			self.session.open(SoftcamPanel)
 		except:
 			pass
@@ -3663,13 +3663,13 @@ class InfoBarQuickMenu:
 	def quickmenuStart(self):
 		try:
 			if not self.session.pipshown:
-				from Plugins.Extensions.Infopanel.QuickMenu import QuickMenu
+				from Plugins.Extensions.Openpanel.QuickMenu import QuickMenu
 				self.session.open(QuickMenu)
 			else:
 				self.showExtensionSelection()
 		except:
 			print "[INFOBARGENERICS] QuickMenu: error pipshow, starting Quick Menu"
-			from Plugins.Extensions.Infopanel.QuickMenu import QuickMenu
+			from Plugins.Extensions.Openpanel.QuickMenu import QuickMenu
 			self.session.open(QuickMenu)
 
 class InfoBarInstantRecord:
@@ -3952,14 +3952,14 @@ class InfoBarAudioSelection:
 		if not hasattr(self, "LongButtonPressed"):
 			self.LongButtonPressed = False
 		if not self.LongButtonPressed:
-			if config.plugins.infopanel_yellowkey.list.value == '0':
+			if config.plugins.openpanel_yellowkey.list.value == '0':
 				from Screens.AudioSelection import AudioSelection
 				self.session.openWithCallback(self.audioSelected, AudioSelection, infobar=self)
-			elif config.plugins.infopanel_yellowkey.list.value == '2':
+			elif config.plugins.openpanel_yellowkey.list.value == '2':
 				global AUDIO
 				AUDIO = True
 				ToggleVideo()
-			elif config.plugins.infopanel_yellowkey.list.value == '3':
+			elif config.plugins.openpanel_yellowkey.list.value == '3':
 				self.startTeletext()
 			else:
 				try:
@@ -3967,14 +3967,14 @@ class InfoBarAudioSelection:
 				except:
 					pass
 		else:
-			if config.plugins.infopanel_yellowkey.listLong.value == '0':
+			if config.plugins.openpanel_yellowkey.listLong.value == '0':
 				from Screens.AudioSelection import AudioSelection
 				self.session.openWithCallback(self.audioSelected, AudioSelection, infobar=self)
-			elif config.plugins.infopanel_yellowkey.listLong.value == '2':
+			elif config.plugins.openpanel_yellowkey.listLong.value == '2':
 				global AUDIO
 				AUDIO = True
 				ToggleVideo()
-			elif config.plugins.infopanel_yellowkey.listLong.value == '3':
+			elif config.plugins.openpanel_yellowkey.listLong.value == '3':
 				self.startTeletext()
 			else:
 				try:
